@@ -1,0 +1,124 @@
+@font-face {
+    font-family: 'pixel1';
+    src: url('../font/Pixellari.ttf');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'pixel1' ,sans-serif;
+    font-weight: 600;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+}
+
+.container{
+    position: relative;
+}
+
+.background{
+    display: block;
+    height: 100%;
+    position: relative;
+    
+}
+
+
+.letreiro{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.trasicao{
+    transition: 2s ease-in-out;
+    opacity: 1;
+}
+
+
+.letreiro .petala{
+    display: block;
+    margin: auto;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 330px;
+    width: 800px;
+}
+
+h2{
+    text-align: center;
+    font-size: 3em;
+    color: #FF80B3;
+    text-shadow: 2px 5px 1px #fa398c;
+}
+
+.kirby{
+    height: 80px;
+    position: absolute;
+    top: 264px;
+    left: 20px;
+    z-index: 2;
+}
+
+.porta{
+    position: absolute;
+    height: 150px;
+    top: 189px;
+    right: 82px;
+    z-index: 1;
+    
+}
+.estrelas{
+    display: block;
+    position: absolute;
+    height: 128px;
+    top: 198px;
+    right: 62px;
+    border-radius: 100% 100% 0 0;    
+}
+
+.tecla{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 70%;
+    right: 50px;
+    color:  black;  
+    text-shadow: 2px 5px 1px rgba(0, 0, 0, 0.418);
+    font-size: 1.5rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+
+.tecla > img{
+    height: 90px;
+    animation: animacaoTecla 5s ease-in-out infinite;
+}
+
+
+@keyframes animacaoTecla{
+   0%{
+       transform: translateY(0);
+   }
+   50%{
+        transform: translateY(-10px);
+   }
+   100%{
+        transform: translateY(0);
+   }
+}
