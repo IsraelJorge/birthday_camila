@@ -1,5 +1,6 @@
 const audio = document.querySelector('#song') as HTMLAudioElement;
 const kirby = document.querySelector('.kirby') as HTMLImageElement;
+const btnReset = document.querySelector('.reset') as HTMLButtonElement;
 
 
 function parabens() {
@@ -15,11 +16,11 @@ function playMusica() {
     audio.play();
 }
     
-window.addEventListener('keydown', (e:any) => {
+window.addEventListener('keydown', (e: any) => {
     
     playMusica();
 
-    if (e.keyCode === 39) {   
+    if (e.keyCode === 39) {
         
         let posicao = kirby.offsetLeft;
         
@@ -29,7 +30,7 @@ window.addEventListener('keydown', (e:any) => {
 
         posicao += 7;
 
-        kirby.style.left = `${posicao}px`;   
+        kirby.style.left = `${posicao}px`;
 
         if (posicao >= 1170) {
             kirby.src = 'img/kirby-concluido-cortado.gif';
@@ -40,13 +41,23 @@ window.addEventListener('keydown', (e:any) => {
         }
    
     }
-})
+});
+
+btnReset.addEventListener('click', () => {
+    const letreiro = document.querySelector('.letreiro') as HTMLDivElement;
+    letreiro.classList.remove('trasicao'); 
+
+    kirby.src = 'img/kirby-andando-cotado.gif';
+    kirby.style.height = '80px';
+    kirby.style.left = '20px';
+    kirby.style.top = '264px';
+});
 
 
-window.addEventListener('keydown', (e:any) => {
+window.addEventListener('keydown', (e: any) => {
     if (e.keyCode === 32) {
         audio.pause();
     }
-})
+});
 
 

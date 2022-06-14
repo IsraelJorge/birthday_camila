@@ -1,6 +1,7 @@
 "use strict";
 const audio = document.querySelector('#song');
 const kirby = document.querySelector('.kirby');
+const btnReset = document.querySelector('.reset');
 function parabens() {
     const letreiro = document.querySelector('.letreiro');
     letreiro.classList.add('trasicao');
@@ -27,6 +28,14 @@ window.addEventListener('keydown', (e) => {
             parabens();
         }
     }
+});
+btnReset.addEventListener('click', () => {
+    const letreiro = document.querySelector('.letreiro');
+    letreiro.classList.remove('trasicao');
+    kirby.src = 'img/kirby-andando-cotado.gif';
+    kirby.style.height = '80px';
+    kirby.style.left = '20px';
+    kirby.style.top = '264px';
 });
 window.addEventListener('keydown', (e) => {
     if (e.keyCode === 32) {
