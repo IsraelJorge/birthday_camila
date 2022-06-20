@@ -23,12 +23,9 @@ body{
 }
 
 .background{
-    display: block;
-    height: 100%;
-    position: relative;
-    
+    display: block;    
+    position: relative;    
 }
-
 
 .letreiro{
     width: 100%;

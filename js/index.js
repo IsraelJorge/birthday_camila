@@ -3,9 +3,9 @@ const audio = document.querySelector('#song');
 const kirby = document.querySelector('.kirby');
 const btnReset = document.querySelector('.reset');
 const kirbyAndando = 'img/kirby-andando-cotado.gif';
-
-window.addEventListener('keydown', (e) => {
+function andar(e) {
     playMusica();
+    console.log(e.code);
     if (e.keyCode === 39) {
         if (kirby.getAttribute('src') != kirbyAndando) {
             kirby.src = kirbyAndando;
@@ -16,6 +16,7 @@ window.addEventListener('keydown', (e) => {
             posicao = 0;
         }
         posicao += 7;
+        console.log(posicao);
         kirby.style.left = `${posicao}px`;
         if (posicao >= 1126) {
             const kirbyConcluido = kirby;
@@ -25,26 +26,26 @@ window.addEventListener('keydown', (e) => {
             parabens();
         }
     }
-});
-window.addEventListener('keyup', (e) => {
-    if (e.keyCode === 39) {
-        if (kirby.getAttribute('src') != 'img/kirby-concluido-cortado.gif') {
-            kirby.src = 'img/kirby-parado.gif';
-        }
-    }
-});
-btnReset.addEventListener('click', () => {
+}
+function resetar() {
     const letreiro = document.querySelector('.letreiro');
     letreiro.classList.remove('trasicao');
     kirby.src = 'img/kirby-parado.gif';
     kirby.style.left = '20px';
     consertarTamanhoKirby();
-});
-window.addEventListener('keydown', (e) => {
+}
+function trocarImagemParado(e) {
+    if (e.keyCode === 39) {
+        if (kirby.getAttribute('src') != 'img/kirby-concluido-cortado.gif') {
+            kirby.src = 'img/kirby-parado.gif';
+        }
+    }
+}
+function pausaMusica(e) {
     if (e.keyCode === 32) {
         audio.pause();
     }
-});
+}
 function playMusica() {
     if (!(audio.paused))
         return;
@@ -59,3 +60,7 @@ function consertarTamanhoKirby() {
     kirby.style.height = '80px';
     kirby.style.top = '264px';
 }
+window.addEventListener('keydown', andar);
+window.addEventListener('keyup', trocarImagemParado);
+btnReset.addEventListener('click', resetar);
+window.addEventListener('keydown', pausaMusica);

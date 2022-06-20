@@ -4,11 +4,9 @@ const btnReset = document.querySelector('.reset') as HTMLButtonElement;
 
 const kirbyAndando = 'img/kirby-andando-cotado.gif';
 
-
-window.addEventListener('keydown', (e: any) => {
-    
+function andar(e: any) {
+        
     playMusica();
-
     if (e.keyCode === 39) {
         
         if (kirby.getAttribute('src') != kirbyAndando) {
@@ -36,32 +34,30 @@ window.addEventListener('keydown', (e: any) => {
         }
    
     }
-});
+}
 
-window.addEventListener('keyup',(e:any) => {
-    if(e.keyCode === 39){
-        if (kirby.getAttribute('src') != 'img/kirby-concluido-cortado.gif') {
-            kirby.src = 'img/kirby-parado.gif';
-        }
-    }
-});
-
-btnReset.addEventListener('click', () => {
+function resetar() {
     const letreiro = document.querySelector('.letreiro') as HTMLDivElement;
     letreiro.classList.remove('trasicao'); 
 
     kirby.src = 'img/kirby-parado.gif';
     kirby.style.left = '20px';
     consertarTamanhoKirby();
-    
-});
+}
 
+function trocarImagemParado(e: any) {
+    if(e.keyCode === 39){
+        if (kirby.getAttribute('src') != 'img/kirby-concluido-cortado.gif') {
+            kirby.src = 'img/kirby-parado.gif';
+        }
+    }
+}
 
-window.addEventListener('keydown', (e: any) => {
+function pausaMusica(e: any) {
     if (e.keyCode === 32) {
         audio.pause();
     }
-});
+}
 
 function playMusica() {
     if (!(audio.paused)) return;
@@ -81,9 +77,10 @@ function consertarTamanhoKirby() {
     kirby.style.top = '264px';
 }
 
+window.addEventListener('keydown', andar);
 
+window.addEventListener('keyup', trocarImagemParado);
 
+btnReset.addEventListener('click', resetar);
 
-
-
-
+window.addEventListener('keydown', pausaMusica);
