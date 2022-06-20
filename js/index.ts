@@ -5,7 +5,7 @@ const btnReset = document.querySelector('.reset') as HTMLButtonElement;
 const kirbyAndando = 'img/kirby-andando-cotado.gif';
 
 
-window.addEventListener('keypress', (e: any) => {
+window.addEventListener('keydown', (e: any) => {
     
     playMusica();
 
