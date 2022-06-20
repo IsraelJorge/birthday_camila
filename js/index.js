@@ -3,6 +3,7 @@ const audio = document.querySelector('#song');
 const kirby = document.querySelector('.kirby');
 const btnReset = document.querySelector('.reset');
 const kirbyAndando = 'img/kirby-andando-cotado.gif';
+
 window.addEventListener('keypress', (e) => {
     playMusica();
     if (e.keyCode === 39) {
