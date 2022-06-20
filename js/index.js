@@ -4,7 +4,7 @@ const kirby = document.querySelector('.kirby');
 const btnReset = document.querySelector('.reset');
 const kirbyAndando = 'img/kirby-andando-cotado.gif';
 
-window.addEventListener('keypress', (e) => {
+window.addEventListener('keydown', (e) => {
     playMusica();
     if (e.keyCode === 39) {
         if (kirby.getAttribute('src') != kirbyAndando) {
